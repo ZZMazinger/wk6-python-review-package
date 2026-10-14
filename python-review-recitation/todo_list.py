@@ -14,51 +14,43 @@ class Todo:
     """
     Represents a single To-Do item. Stores task name, date, and completion status.
     """
-    REPLACE_ME = None
-    def __init__(self, task, date, completed=REPLACE_ME): # what should the default value be?
-        # TODO: Your code here
-        pass
+    def __init__(self, name, date, completed=False): # what should the default value be?
+        self.task = {}
+        self.task["task_name"] = name
+        self.task["date"] = date
+        self.task["completed"] = completed
 
     def get_task(self):
-        # TODO: Your code here
-        pass
+        return self.task["task_name"]
 
     def get_date(self):
-        # TODO: Your code here
-        pass
+        return self.task["date"]
 
     def is_completed(self):
-        # TODO: Your code here
-        pass
+        return self.task["completed"]
 
     def set_task(self, new_task):
-        # TODO: Your code here
-        pass
+        self.task["task_name"] = new_task
 
     def set_date(self, new_date):
-        # TODO: Your code here
-        pass
+        self.task["date"] = new_date
 
     def set_completed(self, status):
-        # TODO: Your code here
-        pass
+        self.task["completed"] = status
 
     def toggle_completion(self):
-        # TODO: Your code here
-        pass
+        self.task["completed"] = not self.task["completed"]
 
     def to_dict(self):
         """
         Converts the Todo object to dictionary format with keys like: 
         {'task': 'task name', 'date': datetime.date(2025, 1, 1), 'completed': False}
         """
-        # TODO: Your code here
-        pass
+        return self.task
 
     def __str__(self):
-        # TODO: Your code here
-        pass
-
+        status = "Completed" if self.task["completed"] else "Not Completed"
+        return f"Task: {self.task['task_name']}, Due Date: {self.task['date']}, Status: {status}"
 
 # --- CODE TO COMPLETE: TodoList Class ---
 # The TodoList class manages a collection of Todo objects.
